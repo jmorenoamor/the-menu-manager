@@ -1,0 +1,47 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Calabacín"
+    },
+    {
+      "id": 2,
+      "name": "Patata"
+    },
+    {
+      "id": 3,
+      "name": "Huevo"
+    }
+  ],
+  "receta": [
+    {
+      "id": 1,
+      "name": "Tortilla de calabacín",
+      "ingredients": [
+        {
+          "id": 1,
+          "amount": 1,
+          "unit": "pieza",
+          "product": {
+            "id": 1,
+            "name": "Calabacín"
+          }
+        }
+      ]
+    }
+  ],
+  "menus": [
+    {
+      "id": 1,
+      "name": "Menú semanal 1",
+      "recipes": [
+        {
+          "id": 1,
+          "recipe": 1,
+          "slot": 0,
+          "day": 1
+        }
+      ]
+    }
+  ]
+}
