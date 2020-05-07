@@ -2,9 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 import { LoggingService } from 'src/app/modules/core';
 import { BackendService } from 'src/app/modules/manager/services';
+import { FirebaseBackendService } from 'src/app/modules/manager/services';
 
 import { ResultList } from 'src/app/modules/core/models';
-import { MenuEntry } from 'src/app/modules/manager/models';
+
+import { Product, ProductProcess } from 'src/app/modules/manager/models';
+import { Unit, ProductComponent } from 'src/app/modules/manager/models';
+import { Ingredient, Recipe, MenuEntry, Menu } from 'src/app/modules/manager/models';
 
 @Component({
   selector: 'app-menu-page',
@@ -13,24 +17,60 @@ import { MenuEntry } from 'src/app/modules/manager/models';
 })
 export class MenuPageComponent implements OnInit {
 
-  public entries: MenuEntry[];
+  public products: any[];
+  public menu: Menu;
 
   constructor(
     private logger: LoggingService,
     private backend: BackendService,
+    // private fbBackend: FirebaseBackendService,
   ) { }
 
   ngOnInit(): void {
 
-    this.backend.getMenuEntries().subscribe(
-      (data: ResultList<MenuEntry> ) => {
-        this.entries = data.results  ;
-      },
-      (error: any) => {
-        this.logger.error("Error no contemplado.");
-      }
-    );
+    // this.fbBackend.getProducts().subscribe(
+    //   (data: Product[]) => {
+    //     this.products = data;
+    //   },
+    //   (error: any) => {
+    //     this.logger.error("Error no contemplado.");
+    //   }
+    // );
+    //
+    //
+    // this.fbBackend.getMenu('semanal').subscribe(
+    //   (data: Menu) => {
+    //     this.logger.info(data);
+    //     this.menu = data;
+    //   }
+    // );
+    //
 
+    // this.fbBackend.getMenu2('semanal');
+
+    // this.fbBackend.getMenu('semanal').subscribe((snapshot) => {
+    //
+    //   this.logger.info(snapshot.payload.doc);
+    //
+    //   // catsSnapshot.forEach((data: any) => {
+    //   //   this.logger.info(data);
+    //   //   this.menu = data.payload.doc.data()
+    //   // })
+    // });
+
+    // this.fbBackend.getProducts().snapshotChanges().subscribe(products => {
+    //     products.forEach(product => {
+    //       let a = product.payload.toJSON();
+    //       a['$key'] = product.key;
+    //       this.entries_b.push(a as Product)
+    //     });
+    //     /* Data table */
+    //     // this.dataSource = new MatTableDataSource(this.BookData);
+    //     /* Pagination */
+    //     // setTimeout(() => {
+    //       // this.dataSource.paginator = this.paginator;
+    //     // }, 0);
+    // })
   }
 
 }
