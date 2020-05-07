@@ -24,7 +24,7 @@
       "name": "Huevo"
     }
   ],
-  "receta": [
+  "recipes": [
     {
       "id": 1,
       "name": "Tortilla de calabacín",
@@ -49,9 +49,44 @@
       "entries": [
         {
           "id": 1,
-          "recipe": 1,
-          "slot": 0,
-          "day": 1
+          "recipe": {
+            "id": 1,
+            "name": "Tortilla de calabacín",
+            "ingredients": [
+              {
+                "id": 1,
+                "amount": 1,
+                "unit": "piece",
+                "process": "rehogado",
+                "product": {
+                  "id": 1,
+                  "name": "Calabacín"
+                }
+              },
+              {
+                "id": 2,
+                "amount": 2,
+                "unit": "piece",
+                "process": "rehogado",
+                "product": {
+                  "id": 2,
+                  "name": "Patata"
+                }
+              },
+              {
+                "id": 3,
+                "amount": 3,
+                "unit": "piece",
+                "process": "cocinado",
+                "product": {
+                  "id": 3,
+                  "name": "Huevo"
+                }
+              }
+            ]
+          },
+          "slot": 1,
+          "date": "2020-05-06T00:00:00.000Z"
         }
       ]
     }

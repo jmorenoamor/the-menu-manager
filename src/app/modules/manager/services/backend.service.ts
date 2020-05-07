@@ -44,6 +44,15 @@ export class BackendService {
     );
   }
 
+  public getMenu(id: number): Observable<Menu> {
+    let entity = "menus";
+    let url = `${this.baseUrl}/${entity}/${id}/`;
+    return this.http.get<Menu>(url, { headers: this.headers }).pipe(
+      retry(this.retries),
+      catchError(this.handleError)
+    );
+  }
+
   public getMenuEntries(): Observable<ResultList<MenuEntry>> {
     let url = `${this.baseUrl}/menu_entries/`;
     return this.http.get<ResultList<MenuEntry>>(url, { headers: this.listHeaders }).pipe(

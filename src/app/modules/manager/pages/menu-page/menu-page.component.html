@@ -1,9 +1,5 @@
 <div class="">
-
-  <!-- <p *ngFor="let entry of entries">{{ entry | json }}</p>
-  <h2>Products</h2>
-  <p>{{ products | json }}</p> -->
-
+  <h2>{{ menu?.name }}</h2>
 </div>
 
 <table border="1px">
@@ -19,23 +15,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr *ngFor="let slot of [1, 2]">
+      <td *ngFor="let weekDay of [1, 2, 3, 4, 5, 6, 7]">
+        <p *ngFor="let entry of entriesForDaySlot(menu?.entries, weekDay, slot)">{{ entry.recipe.name }}</p>
+      </td>
     </tr>
   </tbody>
 </table>
