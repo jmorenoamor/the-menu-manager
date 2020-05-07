@@ -2,7 +2,18 @@
   "products": [
     {
       "id": 1,
-      "name": "Calabacín"
+      "name": "Calabacín",
+      "components": [
+        {
+          "id": 1,
+          "component": {
+            "id": 1,
+            "name": "Vitamina C"
+          },
+          "amount": 20,
+          "unit": "mg"
+        }
+      ]
     },
     {
       "id": 2,
@@ -21,7 +32,8 @@
         {
           "id": 1,
           "amount": 1,
-          "unit": "pieza",
+          "unit": "piece",
+          "process": "rehogado",
           "product": {
             "id": 1,
             "name": "Calabacín"
@@ -34,7 +46,7 @@
     {
       "id": 1,
       "name": "Menú semanal 1",
-      "recipes": [
+      "entries": [
         {
           "id": 1,
           "recipe": 1,
@@ -42,6 +54,23 @@
           "day": 1
         }
       ]
+    }
+  ],
+  "menu_entries": [
+    {
+      "id": 1,
+      "recipe": 1,
+      "slot": 1,
+      "date": "2020-05-13"
+    }
+  ],
+  "units": [
+    {
+      "id": 1,
+      "name": "gramo",
+      "abb": "g",
+      "equivalent_amount": 1,
+      "equivalent_unit": "g"
     }
   ]
 }
