@@ -19,6 +19,7 @@ import * as moment from 'moment';
 export class MenuPageComponent implements OnInit {
 
   public menu: Menu;
+  public recipes: Recipe[];
 
   constructor(
     private logger: LoggingService,
@@ -30,6 +31,15 @@ export class MenuPageComponent implements OnInit {
     this.backend.getMenu(1).subscribe(
       (data: Menu) => {
         this.menu = data;
+      },
+      (error: any) => {
+        this.logger.error("Error no contemplado.");
+      }
+    );
+
+    this.backend.getRecipes().subscribe(
+      (data: ResultList<Recipe>) => {
+        this.recipes = data.results;
       },
       (error: any) => {
         this.logger.error("Error no contemplado.");
@@ -50,4 +60,21 @@ export class MenuPageComponent implements OnInit {
     return entries.filter(entry => parseInt(entry.slot) === slot && moment(entry.date).day() === weekDay);
   }
 
+  public shoppingList(entries:MenuEntry[]): Product[] {
+    let list = [];
+    let uniquelist = [];
+    entries.forEach(entry => {
+      entry.recipe.ingredients.forEach(ingredient => {
+        if (uniquelist.map(i => i.product.id).includes(ingredient.product.id)) {
+          let uniqueEntry = uniquelist.findIndex(e => e.product.id === ingredient.product.id);
+          uniquelist[uniqueEntry].amount += ingredient.amount;
+        } else {
+          uniquelist.push(JSON.parse(JSON.stringify(ingredient)));
+        }
+        list.push(ingredient.product);
+      });
+    });
+    return uniquelist;
+    // return list;
+  }
 }

@@ -21,7 +21,15 @@
     },
     {
       "id": 3,
-      "name": "Huevo"
+      "name": "Huevo",
+      "packagings": [
+        {
+          "id": 1,
+          "name": "docena"
+          "unit": "unidad",
+          "amount": 12
+        }
+      ]
     }
   ],
   "recipes": [
@@ -32,11 +40,31 @@
         {
           "id": 1,
           "amount": 1,
-          "unit": "piece",
+          "unit": "unidad",
           "process": "rehogado",
           "product": {
             "id": 1,
             "name": "Calabacín"
+          }
+        },
+        {
+          "id": 2,
+          "amount": 2,
+          "unit": "unidad",
+          "process": "rehogado",
+          "product": {
+            "id": 2,
+            "name": "Patata"
+          }
+        },
+        {
+          "id": 3,
+          "amount": 3,
+          "unit": "unidad",
+          "process": "cocinado",
+          "product": {
+            "id": 3,
+            "name": "Huevo"
           }
         }
       ]
@@ -56,7 +84,7 @@
               {
                 "id": 1,
                 "amount": 1,
-                "unit": "piece",
+                "unit": "unidad",
                 "process": "rehogado",
                 "product": {
                   "id": 1,
@@ -66,7 +94,7 @@
               {
                 "id": 2,
                 "amount": 2,
-                "unit": "piece",
+                "unit": "unidad",
                 "process": "rehogado",
                 "product": {
                   "id": 2,
@@ -76,7 +104,7 @@
               {
                 "id": 3,
                 "amount": 3,
-                "unit": "piece",
+                "unit": "unidad",
                 "process": "cocinado",
                 "product": {
                   "id": 3,
@@ -86,6 +114,118 @@
             ]
           },
           "slot": 1,
+          "date": "2020-05-06T00:00:00.000Z"
+        },
+        {
+          "id": 3,
+          "recipe": {
+            "id": 1,
+            "name": "Tortilla de calabacín",
+            "ingredients": [
+              {
+                "id": 1,
+                "amount": 1,
+                "unit": "unidad",
+                "process": "rehogado",
+                "product": {
+                  "id": 1,
+                  "name": "Calabacín"
+                }
+              },
+              {
+                "id": 2,
+                "amount": 2,
+                "unit": "unidad",
+                "process": "rehogado",
+                "product": {
+                  "id": 2,
+                  "name": "Patata"
+                }
+              },
+              {
+                "id": 3,
+                "amount": 3,
+                "unit": "unidad",
+                "process": "cocinado",
+                "product": {
+                  "id": 3,
+                  "name": "Huevo"
+                }
+              }
+            ]
+          },
+          "slot": 1,
+          "date": "2020-05-08T00:00:00.000Z"
+        },
+        {
+          "id": 2,
+          "recipe": {
+            "id": 2,
+            "name": "Arroz con pollo",
+            "ingredients": [
+              {
+                "id": 4,
+                "amount": 4,
+                "unit": "unidad",
+                "process": "rehogado,cocido",
+                "product": {
+                  "id": 4,
+                  "name": "Muslo de pollo"
+                }
+              },
+              {
+                "id": 5,
+                "amount": 200,
+                "unit": "gramo",
+                "process": "cocido",
+                "product": {
+                  "id": 5,
+                  "name": "Guisantes"
+                }
+              },
+              {
+                "id": 6,
+                "amount": 50,
+                "unit": "gramo",
+                "process": "rehogado,cocido",
+                "product": {
+                  "id": 6,
+                  "name": "Pimiento rojo"
+                }
+              },
+              {
+                "id": 7,
+                "amount": 50,
+                "unit": "gramo",
+                "process": "rehogado,cocido",
+                "product": {
+                  "id": 7,
+                  "name": "Cebolla"
+                }
+              },
+              {
+                "id": 8,
+                "amount": 150,
+                "unit": "gramo",
+                "process": "cocido",
+                "product": {
+                  "id": 8,
+                  "name": "Arroz"
+                }
+              },
+              {
+                "id": 9,
+                "amount": 300,
+                "unit": "mililitro",
+                "process": "cocido",
+                "product": {
+                  "id": 9,
+                  "name": "Caldo de pollo"
+                }
+              }
+            ]
+          },
+          "slot": 2,
           "date": "2020-05-06T00:00:00.000Z"
         }
       ]
@@ -103,6 +243,7 @@
     {
       "id": 1,
       "name": "gramo",
+      "plural": "gramos",
       "abb": "g",
       "equivalent_amount": 1,
       "equivalent_unit": "g"
