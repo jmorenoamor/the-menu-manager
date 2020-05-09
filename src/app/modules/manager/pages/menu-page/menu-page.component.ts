@@ -77,4 +77,8 @@ export class MenuPageComponent implements OnInit {
     return uniquelist;
     // return list;
   }
+
+  public onAddRecipeToSlot(slot:number) {
+
+  }
 }

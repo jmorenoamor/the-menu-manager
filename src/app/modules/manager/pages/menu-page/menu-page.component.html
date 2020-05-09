@@ -27,27 +27,21 @@
 
           <tr *ngFor="let slot of [1, 2]">
             <td *ngFor="let weekDay of [1, 2, 3, 4, 5, 6, 7]">
-
               <div *ngFor="let entry of entriesForDaySlot(menu?.entries, weekDay, slot)" class="card text-white bg-success mb-3" style="max-width: 18rem;">
-              <!-- <div class="card text-white bg-success mb-0" style="max-width: 18rem;"> -->
                 <div class="card-body">
                   <h5 class="card-title">{{ entry.recipe.name }}</h5>
                   <p *ngFor="let i of entry.recipe.ingredients" class="card-text mb-0">
                     {{ i.amount }} {{ i.unit }} de {{ i.product.name | lowercase }}
-                    <!-- <ul class="card-text">
-                      <li *ngFor="let i of entry.recipe.ingredients">{{ i.amount }} {{ i.unit }} de {{ i.product.name }}</li>
-                    </ul> -->
                   </p>
                 </div>
               </div>
-
             </td>
           </tr>
           <tr>
             <td *ngFor="let weekDay of [1, 2, 3, 4, 5, 6, 7]">
-              <div class="card text-white bg-dark mb-0">
-                <div class="card-header text-center">+</div>
-              </div>
+              <button type="button" class="btn btn-outline-dark btn-block" (click)="onAddRecipeToSlot(1)">
+                <i class="cil-plus c-icon"></i>
+              </button>
             </td>
           </tr>
         </tbody>
