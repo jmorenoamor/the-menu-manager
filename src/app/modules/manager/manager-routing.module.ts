@@ -5,11 +5,17 @@ import { AuthGuard } from "src/app/modules/auth/guards";
 import { InnerGuard } from "src/app/modules/auth/guards";
 
 import { MenuPageComponent } from './pages';
+import { ProductSearchPageComponent } from './pages';
 
 const routes: Routes = [
   {
       path: '',
       component: MenuPageComponent,
+      // canActivate: [AuthGuard],
+  },
+  {
+      path: 'products',
+      component: ProductSearchPageComponent,
       // canActivate: [AuthGuard],
   },
 ];

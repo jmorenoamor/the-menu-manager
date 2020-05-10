@@ -34,6 +34,11 @@
                     {{ i.amount }} {{ i.unit }} de {{ i.product.name | lowercase }}
                   </p>
                 </div>
+                <!-- <div class="card-footer bg-transparent border-success p-0">
+                  <small>
+                    <i class="cil-clock c-icon"></i><span class="align-baseline"> 60m</span>
+                  </small>
+                </div> -->
               </div>
             </td>
           </tr>
@@ -54,6 +59,8 @@
     </div>
 
     <div class="col-md-2">
+      <h2>Productos</h2>
+      <app-product-search></app-product-search>
       <h2>Recetas</h2>
       <div *ngFor="let recipe of recipes" class="card mb-0" style="max-width: 18rem;">
         <div class="card-header">{{ recipe.name }}</div>

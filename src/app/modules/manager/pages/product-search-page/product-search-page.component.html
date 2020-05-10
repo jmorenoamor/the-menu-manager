@@ -1,0 +1,34 @@
+<div class="ui-view fade-in">
+
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <form [formGroup]="searchForm">
+        <!-- <label for="terms">Terms:</label> -->
+        <input class="form-control form-control" id="terms" formControlName="terms" (keyup)="onSearch($event.target.value)" />
+        <!-- <button class="btn btn-primary" type="submit" (click)="onSearch($event.target.value)">Buscar</button> -->
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Resultados</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let result of searchResults">
+            <td>{{ result.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+
+</div>

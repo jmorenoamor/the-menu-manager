@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { tap, map, retry, catchError } from 'rxjs/operators';
@@ -34,6 +34,15 @@ export class BackendService {
     private http: HttpClient,
     private logger: LoggingService,
   ) {
+  }
+
+  public searchProducts(terms:string): Observable<ResultList<Product>> {
+    let url = `${this.baseUrl}/products/`;
+    let params = new HttpParams().set("q", terms);
+    return this.http.get<ResultList<Product>>(url, { headers: this.listHeaders, params: params }).pipe(
+      retry(this.retries),
+      catchError(this.handleError)
+    );
   }
 
   public getProducts(): Observable<ResultList<Product>> {

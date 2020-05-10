@@ -1,0 +1,23 @@
+<div class="row mb-4">
+  <div class="col-md-12">
+    <form [formGroup]="searchForm">
+      <input class="form-control form-control" id="terms" formControlName="terms" (keyup)="onSearch($event.target.value)" />
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+    <table class="table table-bordered table-hover">
+      <tbody>
+        <tr *ngFor="let result of searchResults">
+          <td>{{ result.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="col-md-4">
+  </div>
+</div>
