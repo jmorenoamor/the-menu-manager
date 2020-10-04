@@ -37,9 +37,20 @@ export class BackendService {
   }
 
   public searchProducts(terms:string): Observable<ResultList<Product>> {
-    let url = `${this.baseUrl}/products/`;
+    let entity = "products";
+    let url = `${this.baseUrl}/${entity}/`;
     let params = new HttpParams().set("q", terms);
     return this.http.get<ResultList<Product>>(url, { headers: this.listHeaders, params: params }).pipe(
+      retry(this.retries),
+      catchError(this.handleError)
+    );
+  }
+
+  public searchRecipes(terms:string): Observable<ResultList<Recipe>> {
+    let entity = "recipes";
+    let url = `${this.baseUrl}/${entity}/`;
+    let params = new HttpParams().set("q", terms);
+    return this.http.get<ResultList<Recipe>>(url, { headers: this.listHeaders, params: params }).pipe(
       retry(this.retries),
       catchError(this.handleError)
     );
@@ -71,9 +82,58 @@ export class BackendService {
     );
   }
 
-  public getMenuEntries(): Observable<ResultList<MenuEntry>> {
-    let url = `${this.baseUrl}/menu_entries/`;
-    return this.http.get<ResultList<MenuEntry>>(url, { headers: this.listHeaders }).pipe(
+  public updateMenu(menu:Menu): Observable<Menu> {
+    let resource = "menus";
+    let url = `${this.baseUrl}/${resource}/${menu.id}/`;
+    return this.http.put<Menu>(url, JSON.stringify(menu), { headers: this.headers }).pipe(
+      retry(this.retries),
+      map(response => response),
+      catchError(this.handleError)
+    );
+  }
+
+  public getMenuEntries(menu:Menu, fromDate:string, toDate:string): Observable<ResultList<MenuEntry>> {
+    let resource = "menu_entries";
+    let url = `${this.baseUrl}/${resource}/`;
+
+    let params = new HttpParams()
+      .set("menu", menu.id.toString())
+      .set("date_gte", fromDate)
+      .set("date_lte", toDate);
+
+    return this.http.get<ResultList<MenuEntry>>(url, { headers: this.listHeaders, params: params }).pipe(
+      retry(this.retries),
+      catchError(this.handleError)
+    );
+  }
+
+  public findMenuEntries(): Observable<ResultList<MenuEntry>> {
+    let resource = "menu_entries";
+    let url = `${this.baseUrl}/${resource}/`;
+
+    let params = new HttpParams();
+
+    return this.http.get<ResultList<MenuEntry>>(url, { headers: this.listHeaders, params: params }).pipe(
+      retry(this.retries),
+      catchError(this.handleError)
+    );
+  }
+
+  public createMenuEntry(entry:MenuEntry): Observable<MenuEntry> {
+    entry.id = Math.floor(Math.random() * (20000 - 10001)) + 10000;
+
+    let resource = "menu_entries";
+    let url = `${this.baseUrl}/${resource}/`;
+    return this.http.post<MenuEntry>(url, JSON.stringify(entry), { headers: this.headers }).pipe(
+      retry(this.retries),
+      catchError(this.handleError)
+    );
+  }
+
+  public deleteMenuEntry(entry:MenuEntry): Observable<MenuEntry> {
+    let resource = "menu_entries";
+    let url = `${this.baseUrl}/${resource}/${entry.id}/`;
+    return this.http.delete<MenuEntry>(url, { headers: this.headers }).pipe(
       retry(this.retries),
       catchError(this.handleError)
     );

@@ -9,13 +9,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { ProductSearchComponent } from './components/product-search/product-search.component';
 import { RecipeSearchComponent } from './components/recipe-search/recipe-search.component';
+import { MenuTableComponent } from './components/menu-table/menu-table.component';
+import { RecipesPageComponent } from './pages/recipes-page/recipes-page.component';
+import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
 
 @NgModule({
   declarations: [
     MenuPageComponent,
     ProductSearchPageComponent,
     ProductSearchComponent,
-    RecipeSearchComponent
+    RecipeSearchComponent,
+    MenuTableComponent,
+    RecipesPageComponent,
+    RecipeDetailComponent,
   ],
   imports: [
     CommonModule,

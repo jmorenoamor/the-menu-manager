@@ -1,5 +1,6 @@
 export interface Unit {
-  id: number;
+  _id?: string;
+  id?: number;
   name: string;
   description?: string;
   abbrev: string;
@@ -8,33 +9,38 @@ export interface Unit {
 }
 
 export interface Component {
-  id: number;
+  _id?: string;
+  id?: number;
   name: string;
   description: string;
 }
 
 export interface ProductComponent {
-  id: number;
+  _id?: string;
+  id?: number;
   component: Component;
   amount: number;
   unit: Unit;
 }
 
 export interface Product {
-  id: number;
+  _id?: string;
+  id?: number;
   name: string;
   description: string;
   components: ProductComponent[];
 }
 
 export interface ProductProcess {
-  id: number;
+  _id?: string;
+  id?: number;
   name: string;
   description: string;
 }
 
 export interface Ingredient {
-  id: number;
+  _id?: string;
+  id?: number;
   amount: number;
   unit: Unit;
   process: ProductProcess;
@@ -42,21 +48,25 @@ export interface Ingredient {
 }
 
 export interface Recipe {
-  id: number;
+  _id?: string;
+  id?: number;
   name: string;
   description: string;
   ingredients: Ingredient[];
 }
 
 export interface MenuEntry {
-  id: number;
+  _id?: string;
+  id?: number;
+  menu: number;
   recipe: Recipe;
   slot: string;
-  date: Date;
+  date: string;
 }
 
 export interface Menu {
-  id: number;
+  _id?: string;
+  id?: number;
   name: string;
   description: string;
   entries: MenuEntry[];

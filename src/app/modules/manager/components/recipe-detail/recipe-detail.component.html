@@ -1,0 +1,27 @@
+<h3>{{ recipe.name }}</h3>
+
+<table class="table table-bordered table-hover">
+  <tbody>
+    <tr *ngFor="let ingredient of recipe.ingredients">
+      <td (click)="selectIngredient(ingredient)">{{ ingredient.amount }} {{ ingredient.unit }} de {{ ingredient.product.name }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button type="button" name="button">Añadir</button>
+
+<div *ngIf="selectedIngredient" class="">
+  <p>{{ selectedIngredient.product.name }}</p>
+  <p>{{ selectedIngredient.amount }}</p>
+
+  <form [formGroup]="ingredientForm" novalidate>
+
+    <div class="form-row">
+      <div>
+        <label for="amount">Amount</label>
+        <input type="number" class="form-control" min="1" formControlName="amount" id="amount">
+      </div>
+    </div>
+
+  </form>
+</div>

@@ -17,7 +17,15 @@
     },
     {
       "id": 2,
-      "name": "Patata"
+      "name": "Patata",
+      "packagings": [
+        {
+          "id": 1,
+          "name": "unidad",
+          "unit": "unidad",
+          "amount": 1
+        }
+      ]
     },
     {
       "id": 3,
@@ -28,6 +36,30 @@
           "name": "docena",
           "unit": "unidad",
           "amount": 12
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Pavo natural"
+    },
+    {
+      "id": 5,
+      "name": "Queso de sandwich"
+    },
+    {
+      "id": 6,
+      "name": "Pan de sandwich"
+    },
+    {
+      "id": 100,
+      "name": "Tortillas de trigo",
+      "packagings": [
+        {
+          "id": 1,
+          "name": "paquete",
+          "unit": "unidad",
+          "amount": 8
         }
       ]
     }
@@ -68,175 +100,279 @@
           }
         }
       ]
+    },
+    {
+      "id": 2,
+      "name": "Arroz con pollo",
+      "ingredients": []
+    },
+    {
+      "id": 3,
+      "name": "Guiso de pescado",
+      "ingredients": []
+    },
+    {
+      "id": 4,
+      "name": "Lentejas",
+      "ingredients": []
+    },
+    {
+      "id": 5,
+      "name": "Macarrones carbonara",
+      "ingredients": []
+    },
+    {
+      "id": 5,
+      "name": "Sandwich mixto",
+      "ingredients": [
+        {
+          "id": 51,
+          "amount": 2,
+          "unit": "unidad",
+          "process": "tostado",
+          "product": {
+            "id": 6,
+            "name": "Pan de sandwich"
+          }
+        },
+        {
+          "id": 52,
+          "amount": 2,
+          "unit": "loncha",
+          "process": null,
+          "product": {
+            "id": 4,
+            "name": "Pavo natural"
+          }
+        },
+        {
+          "id": 53,
+          "amount": 2,
+          "unit": "loncha",
+          "process": null,
+          "product": {
+            "id": 5,
+            "name": "Queso de sandwich"
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Quesadillas de jamón y queso",
+      "ingredients": [
+        {
+          "id": 61,
+          "amount": 1,
+          "unit": "unidad",
+          "process": "tostado",
+          "product": {
+            "id": 1,
+            "name": "Tortilla de trigo"
+          }
+        },
+        {
+          "id": 62,
+          "amount": 2,
+          "unit": "loncha",
+          "process": null,
+          "product": {
+            "id": 1,
+            "name": "Jamón de York"
+          }
+        },
+        {
+          "id": 63,
+          "amount": 2,
+          "unit": "loncha",
+          "process": null,
+          "product": {
+            "id": 5,
+            "name": "Queso de sandwich"
+          }
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "name": "Pizza",
+      "ingredients": []
     }
   ],
   "menus": [
     {
       "id": 1,
-      "name": "Menú semanal 1",
-      "entries": [
-        {
-          "id": 1,
-          "recipe": {
-            "id": 1,
-            "name": "Tortilla de calabacín",
-            "ingredients": [
-              {
-                "id": 1,
-                "amount": 1,
-                "unit": "unidad",
-                "process": "rehogado",
-                "product": {
-                  "id": 1,
-                  "name": "Calabacín"
-                }
-              },
-              {
-                "id": 2,
-                "amount": 2,
-                "unit": "unidad",
-                "process": "rehogado",
-                "product": {
-                  "id": 2,
-                  "name": "Patata"
-                }
-              },
-              {
-                "id": 3,
-                "amount": 3,
-                "unit": "unidad",
-                "process": "cocinado",
-                "product": {
-                  "id": 3,
-                  "name": "Huevo"
-                }
-              }
-            ]
-          },
-          "slot": 1,
-          "date": "2020-05-06T00:00:00.000Z"
-        },
-        {
-          "id": 3,
-          "recipe": {
-            "id": 1,
-            "name": "Tortilla de calabacín",
-            "ingredients": [
-              {
-                "id": 1,
-                "amount": 1,
-                "unit": "unidad",
-                "process": "rehogado",
-                "product": {
-                  "id": 1,
-                  "name": "Calabacín"
-                }
-              },
-              {
-                "id": 2,
-                "amount": 2,
-                "unit": "unidad",
-                "process": "rehogado",
-                "product": {
-                  "id": 2,
-                  "name": "Patata"
-                }
-              },
-              {
-                "id": 3,
-                "amount": 3,
-                "unit": "unidad",
-                "process": "cocinado",
-                "product": {
-                  "id": 3,
-                  "name": "Huevo"
-                }
-              }
-            ]
-          },
-          "slot": 1,
-          "date": "2020-05-08T00:00:00.000Z"
-        },
-        {
-          "id": 2,
-          "recipe": {
-            "id": 2,
-            "name": "Arroz con pollo",
-            "ingredients": [
-              {
-                "id": 4,
-                "amount": 4,
-                "unit": "unidad",
-                "process": "rehogado,cocido",
-                "product": {
-                  "id": 4,
-                  "name": "Muslo de pollo"
-                }
-              },
-              {
-                "id": 5,
-                "amount": 200,
-                "unit": "gramo",
-                "process": "cocido",
-                "product": {
-                  "id": 5,
-                  "name": "Guisantes"
-                }
-              },
-              {
-                "id": 6,
-                "amount": 50,
-                "unit": "gramo",
-                "process": "rehogado,cocido",
-                "product": {
-                  "id": 6,
-                  "name": "Pimiento rojo"
-                }
-              },
-              {
-                "id": 7,
-                "amount": 50,
-                "unit": "gramo",
-                "process": "rehogado,cocido",
-                "product": {
-                  "id": 7,
-                  "name": "Cebolla"
-                }
-              },
-              {
-                "id": 8,
-                "amount": 150,
-                "unit": "gramo",
-                "process": "cocido",
-                "product": {
-                  "id": 8,
-                  "name": "Arroz"
-                }
-              },
-              {
-                "id": 9,
-                "amount": 300,
-                "unit": "mililitro",
-                "process": "cocido",
-                "product": {
-                  "id": 9,
-                  "name": "Caldo de pollo"
-                }
-              }
-            ]
-          },
-          "slot": 2,
-          "date": "2020-05-06T00:00:00.000Z"
-        }
-      ]
+      "name": "Menú semanal 1"
     }
   ],
   "menu_entries": [
     {
-      "id": 1,
-      "recipe": 1,
+      "menu": 1,
+      "recipe": {
+        "id": 1,
+        "name": "Tortilla de calabacín",
+        "ingredients": [
+          {
+            "id": 1,
+            "amount": 1,
+            "unit": "unidad",
+            "process": "rehogado",
+            "product": {
+              "id": 1,
+              "name": "Calabacín"
+            }
+          },
+          {
+            "id": 2,
+            "amount": 2,
+            "unit": "unidad",
+            "process": "rehogado",
+            "product": {
+              "id": 2,
+              "name": "Patata"
+            }
+          },
+          {
+            "id": 3,
+            "amount": 3,
+            "unit": "unidad",
+            "process": "cocinado",
+            "product": {
+              "id": 3,
+              "name": "Huevo"
+            }
+          }
+        ]
+      },
+      "slot": 2,
+      "date": "2020-05-14",
+      "id": 12108
+    },
+    {
+      "menu": 1,
+      "recipe": {
+        "id": 1,
+        "name": "Tortilla de calabacín",
+        "ingredients": [
+          {
+            "id": 1,
+            "amount": 1,
+            "unit": "unidad",
+            "process": "rehogado",
+            "product": {
+              "id": 1,
+              "name": "Calabacín"
+            }
+          },
+          {
+            "id": 2,
+            "amount": 2,
+            "unit": "unidad",
+            "process": "rehogado",
+            "product": {
+              "id": 2,
+              "name": "Patata"
+            }
+          },
+          {
+            "id": 3,
+            "amount": 3,
+            "unit": "unidad",
+            "process": "cocinado",
+            "product": {
+              "id": 3,
+              "name": "Huevo"
+            }
+          }
+        ]
+      },
       "slot": 1,
-      "date": "2020-05-13"
+      "date": "2020-07-06",
+      "id": 16671
+    },
+    {
+      "menu": 1,
+      "recipe": {
+        "id": 5,
+        "name": "Sandwich mixto",
+        "ingredients": [
+          {
+            "id": 51,
+            "amount": 2,
+            "unit": "unidad",
+            "process": "tostado",
+            "product": {
+              "id": 6,
+              "name": "Pan de sandwich"
+            }
+          },
+          {
+            "id": 52,
+            "amount": 2,
+            "unit": "loncha",
+            "process": null,
+            "product": {
+              "id": 4,
+              "name": "Pavo natural"
+            }
+          },
+          {
+            "id": 53,
+            "amount": 2,
+            "unit": "loncha",
+            "process": null,
+            "product": {
+              "id": 5,
+              "name": "Queso de sandwich"
+            }
+          }
+        ]
+      },
+      "slot": 2,
+      "date": "2020-07-07",
+      "id": 13588
+    },
+    {
+      "menu": 1,
+      "recipe": {
+        "id": 6,
+        "name": "Quesadillas de jamón y queso",
+        "ingredients": [
+          {
+            "id": 61,
+            "amount": 1,
+            "unit": "unidad",
+            "process": "tostado",
+            "product": {
+              "id": 1,
+              "name": "Tortilla de trigo"
+            }
+          },
+          {
+            "id": 62,
+            "amount": 2,
+            "unit": "loncha",
+            "process": null,
+            "product": {
+              "id": 1,
+              "name": "Jamón de York"
+            }
+          },
+          {
+            "id": 63,
+            "amount": 2,
+            "unit": "loncha",
+            "process": null,
+            "product": {
+              "id": 5,
+              "name": "Queso de sandwich"
+            }
+          }
+        ]
+      },
+      "slot": 2,
+      "date": "2020-07-12",
+      "id": 15100
     }
   ],
   "units": [

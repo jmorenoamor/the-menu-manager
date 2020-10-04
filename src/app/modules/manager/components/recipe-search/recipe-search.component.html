@@ -1,1 +1,19 @@
-<p>recipe-search works!</p>
+<div class="row mb-4">
+  <div class="col-md-12">
+    <form [formGroup]="searchForm">
+      <input class="form-control form-control" id="terms" formControlName="terms" placeholder="Buscar recetas..." (keyup)="onSearch($event.target.value)" />
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered table-hover">
+      <tbody>
+        <tr *ngFor="let result of searchResults">
+          <td (click)="onSelect(result)">{{ result.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

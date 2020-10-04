@@ -1,6 +1,6 @@
 <div class="ui-view fade-in" *ngIf="menu">
   <div class="row">
-    <h2>{{ menu?.name }}</h2>
+    <h2>{{ menu?.name }} - {{ fromDate | date:"shortDate" }} - {{ toDate | date:"shortDate" }}</h2>
   </div>
 
   <div class="row">
@@ -9,13 +9,9 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>L</th>
-            <th>M</th>
-            <th>X</th>
-            <th>J</th>
-            <th>V</th>
-            <th>S</th>
-            <th>D</th>
+            <th *ngFor="let pair of [[1, 'L'], [2, 'M'], [3, 'X'], [4, 'J'], [5, 'V'], [6, 'S'], [7, 'D']]">
+              {{ pair[1] }} {{ fromDate.day(pair[0]) | date:"shortDate" }}
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -26,9 +22,12 @@
           </tr> -->
 
           <tr *ngFor="let slot of [1, 2]">
-            <td *ngFor="let weekDay of [1, 2, 3, 4, 5, 6, 7]">
-              <div *ngFor="let entry of entriesForDaySlot(menu?.entries, weekDay, slot)" class="card text-white bg-success mb-3" style="max-width: 18rem;">
-                <div class="card-body">
+            <td *ngFor="let weekDay of [1, 2, 3, 4, 5, 6, 7]" (click)="onSelectDaySlot(weekDay, slot)" [ngClass]="setActiveSlotClass(weekDay, slot)">
+              <div *ngFor="let entry of entriesForDaySlot(entries, weekDay, slot)" class="card text-white bg-success m-1" style="max-width: 18rem;">
+                <div class="card-body p-2">
+                  <button type="button" class="close m-0" aria-label="Close" (click)="onRemoveEntry(entry)">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                   <h5 class="card-title">{{ entry.recipe.name }}</h5>
                   <p *ngFor="let i of entry.recipe.ingredients" class="card-text mb-0">
                     {{ i.amount }} {{ i.unit }} de {{ i.product.name | lowercase }}
@@ -42,29 +41,30 @@
               </div>
             </td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td *ngFor="let weekDay of [1, 2, 3, 4, 5, 6, 7]">
               <button type="button" class="btn btn-outline-dark btn-block" (click)="onAddRecipeToSlot(1)">
                 <i class="cil-plus c-icon"></i>
               </button>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>
 
     <div class="col-md-2">
       <h2>Lista</h2>
-      <p *ngFor="let item of shoppingList(menu.entries)">{{ item.amount }} {{ item.unit }} de {{ item.product.name }}</p>
+      <p *ngFor="let item of shoppingList(entries)">{{ item.amount }} {{ item.unit }} de {{ item.product.name }}</p>
     </div>
 
     <div class="col-md-2">
       <h2>Productos</h2>
       <app-product-search></app-product-search>
       <h2>Recetas</h2>
-      <div *ngFor="let recipe of recipes" class="card mb-0" style="max-width: 18rem;">
+      <app-recipe-search (recipeSelected)="onAddRecipe($event)"></app-recipe-search>
+      <!-- <div *ngFor="let recipe of recipes" class="card mb-0" style="max-width: 18rem;">
         <div class="card-header">{{ recipe.name }}</div>
-      </div>
+      </div> -->
     </div>
 
   </div>

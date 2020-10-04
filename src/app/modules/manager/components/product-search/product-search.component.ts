@@ -33,7 +33,7 @@ export class ProductSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public onSearch() {
+  public onSearch(event:any) {
     let terms = this.searchForm.value.terms;
     if (terms && terms.length >= 3) {
       this.backend.searchProducts(this.searchForm.value.terms).subscribe(

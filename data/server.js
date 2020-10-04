@@ -7,7 +7,8 @@
 
 const jsonServer = require('json-server')
 const server = jsonServer.create()
-const router = jsonServer.router('data/data.json')
+// const router = jsonServer.router('data/data.json')
+const router = jsonServer.router('data.json')
 const middlewares = jsonServer.defaults()
 var db = router.db
 
@@ -41,6 +42,6 @@ router.render = (request, response) => {
 
 server.use(middlewares)
 server.use(router)
-server.listen(3000, () => {
+server.listen(3001, () => {
   console.log('JSON Server is running')
 })

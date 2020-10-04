@@ -3,9 +3,14 @@
   <div class="row mb-4">
     <div class="col-md-12">
       <form [formGroup]="searchForm">
-        <!-- <label for="terms">Terms:</label> -->
-        <input class="form-control form-control" id="terms" formControlName="terms" (keyup)="onSearch($event.target.value)" />
-        <!-- <button class="btn btn-primary" type="submit" (click)="onSearch($event.target.value)">Buscar</button> -->
+        <div class="form-row">
+          <div class="col">
+            <input class="form-control form-control" id="terms" formControlName="terms" placeholder="Buscar productos..." (keyup)="onSearch($event.target.value)" />
+          </div>
+          <div class="col-md-1">
+            <button class="btn btn-outline-success" type="submit" (click)="onSearch($event.target.value)">Nuevo</button>
+          </div>
+        </div>
       </form>
     </div>
   </div>
